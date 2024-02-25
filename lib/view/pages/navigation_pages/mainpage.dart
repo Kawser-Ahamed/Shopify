@@ -27,6 +27,7 @@ class _MainPageState extends State<MainPage> {
         width: width * 1,
         color: AppColor.primaryColor,
         child: GNav(
+          selectedIndex: navBarController.pageIndex.value,
           backgroundColor: AppColor.primaryColor,
           color: Colors.white,
           activeColor: Colors.black,

@@ -12,4 +12,11 @@ class AppImages{
   static String grocery = "assets/images/grocery.png";
   static String shoe = "assets/images/shoe.png";
   static String loginScreenImage = 'assets/images/login_image.png';
+  static String splashScreenImage = 'assets/images/splash_screen.jpg';
+  static String catImageForProfile = 'assets/images/cat_for_profile.png';
+  static String freeDeliveryOffer = 'assets/images/free_delivery.jpg';
+  static String orders = 'assets/images/orders.png';
+  static String location = 'assets/images/location.jpg';
+  static String myOffers = 'assets/images/my_offers.png';
+  static String message = 'assets/images/message.png';
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:shopify/firebase_options.dart';
-import 'package:shopify/view/authentication/shopify_user_signup.dart';
+import 'package:shopify/view/pages/splash_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +23,7 @@ class Shopify extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple
       ),
-      home: const ShopifyUserSignup(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

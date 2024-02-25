@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:shopify/view/pages/cart.dart';
-import 'package:shopify/view/pages/homepage.dart';
-import 'package:shopify/view/pages/profile.dart';
-import 'package:shopify/view/pages/settings.dart';
+import 'package:shopify/view/pages/navigation_pages/cart.dart';
+import 'package:shopify/view/pages/navigation_pages/homepage.dart';
+import 'package:shopify/view/pages/navigation_pages/profile.dart';
+import 'package:shopify/view/pages/navigation_pages/menu.dart';
 
 class NavBarController extends GetxController{
 
@@ -21,6 +21,6 @@ class NavBarController extends GetxController{
     const HomePage(),
     const Profile(),
     const Cart(),
-    const Settings(),
+    const Menu(),
   ];
 }

@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shopify/data/categories_design_data.dart';
 import 'package:shopify/data/navbar_controller.dart';
 import 'package:shopify/data/screen.dart';
-import 'package:shopify/view/pages/mainpage.dart';
+import 'package:shopify/view/pages/navigation_pages/mainpage.dart';
 import 'package:shopify/view/pages/products/search.dart';
 
 class HeaderDesign extends StatelessWidget {

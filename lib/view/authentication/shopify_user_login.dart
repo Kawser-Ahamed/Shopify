@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopify/data/screen.dart';
+import 'package:shopify/models/authentication/shopify_user_login_model.dart';
 import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/app_logo_animation.dart';
 import 'package:shopify/utils/reusable/custom_textfield.dart';
+import 'package:shopify/view/authentication/shopify_user_signup.dart';
+import 'package:shopify/view/pages/navigation_pages/mainpage.dart';
+import 'package:shopify/view_models/authentication/shopify_user_login_view_model.dart';
 
 class ShopifyUserLoginPage extends StatefulWidget {
   const ShopifyUserLoginPage({super.key});
@@ -17,6 +22,7 @@ class _ShopifyUserLoginPageState extends State<ShopifyUserLoginPage> with Ticker
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  ShopifyUserLoginViewModel shopifyUserLoginViewModel = Get.put(ShopifyUserLoginViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,7 @@ class _ShopifyUserLoginPageState extends State<ShopifyUserLoginPage> with Ticker
             children: [
               Center(
                 child: Container(
-                  height: height * 0.3,
+                  height: height * 0.27,
                   width: height * 0.5,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -74,18 +80,66 @@ class _ShopifyUserLoginPageState extends State<ShopifyUserLoginPage> with Ticker
                   ),
                 ),
               ),
-              Container(
-                height: height * 0.06,
-                width: width * 1,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*100)),
-                  gradient: const LinearGradient(colors: [Color.fromRGBO(0,97,174,1),Color.fromRGBO(0,61,117,1)])
-                ),
-                child: Text("Login",
+              TextButton(
+                onPressed: (){
+                  Get.to(const ShopifyUserSignupPage(),transition: Transition.rightToLeftWithFade);
+                },
+                child: Text("Don't Have a account? Signup",
                   style: GoogleFonts.aBeeZee(
-                    fontSize: (width/Screen.designWidth) * 40,
-                    color: Colors.white,
+                    fontSize: (width/Screen.designWidth) * 35,
+                    color: const Color.fromRGBO(148,191,88,1),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap:(){
+                  if(email.text.isEmpty || password.text.isEmpty){
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: AppColor.primaryColor,
+                      content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Shopify",
+                            style: GoogleFonts.aBeeZee(
+                              fontSize: (width/Screen.designWidth) * 40,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text("Please fill email and password",
+                            style: TextStyle(
+                              fontSize: (width/Screen.designWidth) * 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      )
+                    ));
+                  }
+                  else{
+                    ShopifyUserLoginModel shopifyUserLoginModel = ShopifyUserLoginModel(email: email.text, password: password.text);
+                    shopifyUserLoginViewModel.emailPasswordSignIn(shopifyUserLoginModel,context).whenComplete((){
+                      if(shopifyUserLoginViewModel.isLoggedIn){
+                        Get.to(const MainPage(),transition: Transition.cupertinoDialog);
+                      }
+                    });
+                  }
+                },
+                child: Container(
+                  height: height * 0.06,
+                  width: width * 1,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*100)),
+                    gradient: const LinearGradient(colors: [Color.fromRGBO(0,97,174,1),Color.fromRGBO(0,61,117,1)])
+                  ),
+                  child: Text("Login",
+                    style: GoogleFonts.aBeeZee(
+                      fontSize: (width/Screen.designWidth) * 40,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -120,29 +174,38 @@ class _ShopifyUserLoginPageState extends State<ShopifyUserLoginPage> with Ticker
                 ],
               ),
               SizedBox(height: height * 0.02),
-              Container(
-                height: height * 0.07,
-                width: width * 1,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*20)),
-                  gradient: const LinearGradient(colors: [Colors.orange,Colors.red]),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Image.asset('assets/images/google_logo.png',
-                      height: height * 0.06,
-                      width: height * 0.06,
-                    ),
-                    Text("Sign in with Google",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: (width/Screen.designWidth) * 35,
-                        color: Colors.white,
+              InkWell(
+                onTap: (){
+                  shopifyUserLoginViewModel.googleLogin().whenComplete((){
+                    if(shopifyUserLoginViewModel.isLoggedIn){
+                      Get.to(const MainPage());
+                    }
+                  });
+                },
+                child: Container(
+                  height: height * 0.07,
+                  width: width * 1,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*20)),
+                    gradient: const LinearGradient(colors: [Colors.orange,Colors.red]),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset('assets/images/google_logo.png',
+                        height: height * 0.06,
+                        width: height * 0.06,
                       ),
-                    ),
-                  ],
+                      Text("Sign in with Google",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.aBeeZee(
+                          fontSize: (width/Screen.designWidth) * 35,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(height: height * 0.02),
