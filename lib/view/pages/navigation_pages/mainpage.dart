@@ -4,6 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:shopify/data/navbar_controller.dart';
 import 'package:shopify/data/screen.dart';
 import 'package:shopify/resource/colors/app_color.dart';
+import 'package:shopify/view_models/cart/cart_view_model.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -15,7 +16,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 
   NavBarController navBarController = Get.put(NavBarController());
-
+  CartViewModel cartViewModel = Get.put(CartViewModel());
+  
   @override
   Widget build(BuildContext context) {
     double height = Screen.screenHeight(context);

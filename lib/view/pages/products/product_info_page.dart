@@ -5,10 +5,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopify/data/screen.dart';
 import 'package:shopify/models/api/comments_model.dart';
+import 'package:shopify/models/cart/cart_model.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/custom_text.dart';
 import 'package:shopify/view/pages/products/search.dart';
 import 'package:shopify/view_models/api/comments_view_model.dart';
+import 'package:shopify/view_models/cart/cart_view_model.dart';
 import 'package:shopify/view_models/products/click_controller.dart';
 import 'package:shopify/view_models/products/products_controller.dart';
 
@@ -26,6 +28,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
   final _scrollController = ScrollController();
   CommentsViewModel commentsViewModel = Get.put(CommentsViewModel());
   TextEditingController reviewAndComments = TextEditingController();
+  CartViewModel cartViewModel = Get.find();
   
   @override
   void dispose() {
@@ -112,35 +115,42 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                 ),
               ],
             ),
-            Container(
-              height: height * 0.06,
-              width:  width * 0.5,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [Colors.pink,Colors.red]),
-                borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*50)),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: width * 0.04,vertical: 0.01),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: height * 0.05,
-                      width: height * 0.06,
-                      decoration: const BoxDecoration(
-                        color: Colors.transparent,
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/cart_bag.png"),
+            InkWell(
+              onTap:(){
+                CartModel cartModel = CartModel(productId: productsController.productInfoData.first.id, productName: productsController.productInfoData.first.productName, price: productsController.productInfoData.first.price, size: "M", quantity: 1, totalPrice: 1000);
+                cartViewModel.addProductsOnCart(cartModel);
+                print('added on cart');
+              },
+              child: Container(
+                height: height * 0.06,
+                width:  width * 0.5,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(colors: [Colors.pink,Colors.red]),
+                  borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*50)),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: width * 0.04,vertical: 0.01),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: height * 0.05,
+                        width: height * 0.06,
+                        decoration: const BoxDecoration(
+                          color: Colors.transparent,
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/cart_bag.png"),
+                          ),
                         ),
                       ),
-                    ),
-                    Text("Add To Cart",
-                      style: GoogleFonts.aBeeZee(
-                        fontSize: (width/Screen.designWidth) * 30,
-                        color: Colors.white
-                      ),
-                    )
-                  ],
+                      Text("Add To Cart",
+                        style: GoogleFonts.aBeeZee(
+                          fontSize: (width/Screen.designWidth) * 30,
+                          color: Colors.white
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

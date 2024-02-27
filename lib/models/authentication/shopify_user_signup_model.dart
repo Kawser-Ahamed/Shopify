@@ -12,6 +12,7 @@ class ShopifyUserSignupModel {
       'name' : name,
       'mobile Number' : null,
       'profileImage' : null,
+      'points' : 0,
     };
   }
 

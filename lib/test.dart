@@ -1,38 +1,64 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+// import 'package:geocoding/geocoding.dart';
 
 
-class PointsBar extends StatelessWidget {
-  final int maxValue;
-  final int currentValue;
+// class LocationConverter extends StatefulWidget {
+//   @override
+//   _LocationConverterState createState() => _LocationConverterState();
+// }
 
-  const PointsBar({super.key, required this.maxValue, required this.currentValue});
+// class _LocationConverterState extends State<LocationConverter> {
+//   double latitude = 23.8118311; // Example latitude
+//   double longitude = 90.3542672; // Example longitude
+//   String location = '';
 
-  @override
-  Widget build(BuildContext context) {
-    double progress = (currentValue / maxValue).clamp(0.0, 1.0);
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Container(
-          height: 20,
-          width: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.grey[300],
-          ),
-          child: Stack(
-            children: [
-              Container(
-                width: 200 * progress,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.blue,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
+
+//   Future<void> getLocationFromCoordinates() async {
+//     try {
+//       List<Placemark> placemarks = await placemarkFromCoordinates(23.8086794, 90.3545352);
+//       setState(() {
+//         location = placemarks.reversed.last.subLocality.toString();
+//       });
+//     } catch (e) {
+//       print('Error getting location: $e');
+//       setState(() {
+//         location = 'Error';
+//       });
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Location Converter'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Text(
+//               'Latitude: $latitude\nLongitude: $longitude',
+//               textAlign: TextAlign.center,
+//             ),
+//             SizedBox(height: 20),
+//             Text(
+//               'Location: $location',
+//               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//             ),
+//             TextButton(
+//               onPressed: (){
+//                 getLocationFromCoordinates();
+//               }, 
+//               child: const Text('Press')
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

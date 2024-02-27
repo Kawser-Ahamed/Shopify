@@ -389,6 +389,7 @@ class _ProfileState extends State<Profile> {
                           return InkWell(
                             onTap:(){
                               if(index==1){
+                                debugPrint('location: ${shopifyUserInformationViewModel.userInformation[0].location}');
                                 userLocation.getUserLocation(context);
                               }
                             },

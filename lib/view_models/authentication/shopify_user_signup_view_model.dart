@@ -72,13 +72,9 @@ class ShopifyUserSignUpViewModel{
         email: shopifyUserSignupModel.email, 
         password: shopifyUserSignupModel.password,
       );
-      await FirebaseFirestore.instance.collection(shopifyUserSignupModel.email).doc("Shopify-User-Information").set({
-        'email' : shopifyUserSignupModel.email,
-        'name' : shopifyUserSignupModel.name,
-        'profileImage' : "",
-        'mobileNumber' : "",
-        'points' : 0,
-      }).then((value){
+      await FirebaseFirestore.instance.collection(shopifyUserSignupModel.email).doc("Shopify-User-Information").set(
+          shopifyUserSignupModel.toJson(),
+        ).then((value){
         sharedPreferences.setString('email', shopifyUserSignupModel.email);
         shopifyUserInformationViewModel.getUserInformation();
         isSingnUp = true;

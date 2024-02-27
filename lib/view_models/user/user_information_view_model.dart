@@ -28,6 +28,9 @@ class ShopifyUserInformationViewModel extends GetxController{
           mobileNumber: (doc['mobileNumber'] == null) ? "" : doc['mobileNumber'],
           profileImage: (doc['profileImage'] == null) ? "" : doc['profileImage'],
           points: doc['points'],
+          latitude: doc.data()!.containsKey('latitude') ? doc['latitude'] : 0.0,
+          longitude: doc.data()!.containsKey('longitude') ? doc['longitude'] : 0.0,
+          location: doc.data()!.containsKey('location') ? doc['location'] : "",
         )).toList();
         hasAccount.value = true;
         update();
