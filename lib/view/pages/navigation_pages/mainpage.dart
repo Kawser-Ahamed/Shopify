@@ -50,16 +50,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-// CurvedNavigationBar(
-//         backgroundColor: AppColor.backgroundColor,
-//         color: AppColor.primaryColor, 
-//         index: navBarController.pageIndex.value,
-//         onTap: (index){
-//           navBarController.pageIndex.value = index;
-//           setState(() {
-            
-//           });
-//         },
-//         items: navBarController.navBarIcons,
-//       ),

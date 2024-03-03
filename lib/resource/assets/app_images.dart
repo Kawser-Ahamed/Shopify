@@ -19,4 +19,7 @@ class AppImages{
   static String location = 'assets/images/location.jpg';
   static String myOffers = 'assets/images/my_offers.png';
   static String message = 'assets/images/message.png';
+  static String soldOut = 'assets/images/sold_out.jpg';
+  static String emptyCart = 'assets/images/empty_cart.jpg';
+  static String cupon = 'assets/images/cupon.png';
 }

@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopify/data/categories_design_data.dart';
 import 'package:shopify/data/navbar_controller.dart';
 import 'package:shopify/data/screen.dart';
+import 'package:shopify/utils/reusable/cart_icon_design.dart';
 import 'package:shopify/view/pages/navigation_pages/mainpage.dart';
 import 'package:shopify/view/pages/products/search.dart';
 
@@ -68,22 +68,7 @@ class HeaderDesign extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: width * 0.01),
-                    InkWell(
-                      onTap:(){
-                        Get.back();
-                      },
-                      child: Container(
-                        height: height * 0.08,
-                        width: width * 0.09,
-                        color: Colors.transparent,
-                        child: const FittedBox(
-                          child: Icon(
-                            CupertinoIcons.cart,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
+                    const CartIconsDesign(iconsHeight: 0.06,iconWidth: 0.06,color: Colors.black),
                     SizedBox(width: width * 0.01),
                     Container(
                       height: height * 0.1,

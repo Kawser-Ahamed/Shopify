@@ -49,6 +49,7 @@ dependencies:
   flutter_expanded_tile: ^0.3.7
   google_maps_flutter: ^2.5.3
   geolocator: ^11.0.0
+  firebase_database: ^10.4.7
   expandable_text: ^2.3.0
   permission_handler: ^11.3.0
   geocoding: ^2.2.0
