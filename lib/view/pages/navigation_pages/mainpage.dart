@@ -22,29 +22,32 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     double height = Screen.screenHeight(context);
     double width = Screen.screenHeight(context);
-    return Scaffold(
-      body: navBarController.navBarPages[navBarController.pageIndex.value],
-      bottomNavigationBar: Container(
-        height: height * 0.1,
-        width: width * 1,
-        color: AppColor.primaryColor,
-        child: GNav(
-          selectedIndex: navBarController.pageIndex.value,
-          backgroundColor: AppColor.primaryColor,
-          color: Colors.white,
-          activeColor: Colors.black,
-          gap: width * 0.01,
-          iconSize: width*0.04,
-          padding: EdgeInsets.symmetric(horizontal: width * 0.02),
-          textSize: width * 0.03,
-          tabBackgroundColor: Colors.grey.shade100,
-          style: GnavStyle.google,
-          tabs: navBarController.navBarIcons,
-          onTabChange: (int currentIndex){
-            setState(() {
-              navBarController.pageIndex.value = currentIndex;
-            });
-          },
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: navBarController.navBarPages[navBarController.pageIndex.value],
+        bottomNavigationBar: Container(
+          height: height * 0.1,
+          width: width * 1,
+          color: AppColor.primaryColor,
+          child: GNav(
+            selectedIndex: navBarController.pageIndex.value,
+            backgroundColor: AppColor.primaryColor,
+            color: Colors.white,
+            activeColor: Colors.black,
+            gap: width * 0.01,
+            iconSize: width*0.04,
+            padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+            textSize: width * 0.03,
+            tabBackgroundColor: Colors.grey.shade100,
+            style: GnavStyle.google,
+            tabs: navBarController.navBarIcons,
+            onTabChange: (int currentIndex){
+              setState(() {
+                navBarController.pageIndex.value = currentIndex;
+              });
+            },
+          ),
         ),
       ),
     );

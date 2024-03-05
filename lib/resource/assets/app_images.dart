@@ -22,4 +22,5 @@ class AppImages{
   static String soldOut = 'assets/images/sold_out.jpg';
   static String emptyCart = 'assets/images/empty_cart.jpg';
   static String cupon = 'assets/images/cupon.png';
+  static String orderNow = 'assets/images/order_now.png';
 }

@@ -9,11 +9,13 @@ import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/cart_icon_design.dart';
 import 'package:shopify/utils/reusable/custom_text.dart';
+import 'package:shopify/view/authentication/shopify_user_login.dart';
 import 'package:shopify/view/pages/products/search.dart';
 import 'package:shopify/view_models/api/comments_view_model.dart';
 import 'package:shopify/view_models/cart/cart_view_model.dart';
 import 'package:shopify/view_models/products/click_controller.dart';
 import 'package:shopify/view_models/products/products_controller.dart';
+import 'package:shopify/view_models/user/user_information_view_model.dart';
 
 class ProductInfoPage extends StatefulWidget {
   const ProductInfoPage({super.key});
@@ -30,6 +32,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
   CommentsViewModel commentsViewModel = Get.put(CommentsViewModel());
   TextEditingController reviewAndComments = TextEditingController();
   CartViewModel cartViewModel = Get.find();
+  ShopifyUserInformationViewModel shopifyUserInformationViewModel = Get.find();
   
   @override
   void dispose() {
@@ -124,6 +127,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
               ),
               InkWell(
                 onTap:(){
+                 if(shopifyUserInformationViewModel.hasAccount.value){
                   CartModel cartModel = CartModel(
                     productId: productsController.productInfoData.first.id, 
                     productName: productsController.productInfoData.first.productName, 
@@ -136,6 +140,10 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                     deliveryCharge: productsController.productInfoData.first.deliveryCharge,
                   );
                   cartViewModel.addProductsOnCart(cartModel);
+                 }
+                 else{
+                  Get.to(const ShopifyUserLoginPage(),transition: Transition.leftToRightWithFade);
+                 }
                   //debugPrint('added on cart');
                 },
                 child: Container(

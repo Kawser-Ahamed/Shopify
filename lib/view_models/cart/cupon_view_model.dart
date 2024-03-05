@@ -1,15 +1,14 @@
 import 'dart:async';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopify/models/cart/cupon_model.dart';
-import 'package:shopify/view_models/cart/cart_view_model.dart';
 
 class CuponViewModel extends GetxController{
 
   RxList<CuponModel> cuponData = <CuponModel>[].obs;
-  CartViewModel cartViewModel = Get.find();
+  RxInt discountPrice = 0.obs;
+  RxDouble totalDiscountPrice = 0.0.obs;
 
   Future<RxList<CuponModel>> getCuponData() async{
     try{
@@ -31,10 +30,11 @@ class CuponViewModel extends GetxController{
     return cuponData;
   }
 
-  void cuponDiscount(String cuponNameFromUser){
+  Future<void> cuponDiscount(String cuponNameFromUser) async{
     for (var cupons in cuponData) {
       if(cupons.cuponName==cuponNameFromUser){
-        cartViewModel.totalPrice.value-=100;
+        discountPrice.value = cupons.discountPercentage;
+        break;
       }
     }
   }
