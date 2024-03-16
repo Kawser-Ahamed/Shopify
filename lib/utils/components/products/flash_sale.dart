@@ -4,6 +4,7 @@ import 'package:shopify/data/screen.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/custom_text.dart';
 import 'package:shopify/utils/reusable/loading.dart';
+import 'package:shopify/view/pages/products/product_info_page.dart';
 import 'package:shopify/view_models/products/products_controller.dart';
 
 class FlashSale extends StatefulWidget {
@@ -22,7 +23,7 @@ class _FlashSaleState extends State<FlashSale> {
     double height = Screen.screenHeight(context);
     double width = Screen.screenWidth(context);
     return Container(
-      height: height * 0.23,
+      height: height * 0.25,
       width: width * 1,
       color: Colors.white,
       child: Container(
@@ -45,90 +46,101 @@ class _FlashSaleState extends State<FlashSale> {
                       itemCount: productsController.flashSaleProductsData.length,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return Container(
-                          margin: EdgeInsets.only(top:height * 0.01,right: width * 0.02),
-                          child: Column(
-                            children: [
-                              Container(
-                                height: height * 0.1,
-                                width: width * 0.3,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.1),
-                                  borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*10)),
-                                  image: DecorationImage(
-                                    image: NetworkImage(productsController.flashSaleProductsData[index].primaryImageUrl),
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: height * 0.035,
-                                width: width * 0.3,
-                                color: Colors.transparent,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      height: height * 0.03,
-                                      width: (width * 0.3)/2,
-                                      color: Colors.transparent,
-                                      child: Text('৳ ${productsController.flashSaleProductsData[index].price.toString()}',
-                                        textAlign: TextAlign.start,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: (width/Screen.designWidth) * 25,
-                                        ),
-                                      )
-                                    ),
-                                    Container(
-                                      height: height * 0.03,
-                                      width: (width * 0.3)/2,
-                                      color: Colors.transparent,
-                                      child: Text('৳ ${productsController.flashSaleProductsData[index].oldPrice.toString()}',
-                                        textAlign: TextAlign.end,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: Colors.red,
-                                          decoration: TextDecoration.lineThrough,
-                                          fontSize: (width/Screen.designWidth) * 25,
-                                        ),
-                                      )
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                height: height * 0.03,
-                                width: width* 0.3,
-                                color: Colors.transparent,
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      height: height * 0.03,
-                                      width: width * 0.05,
-                                      color: Colors.transparent,
-                                      child: const FittedBox(
-                                        child: Icon(Icons.star,color: Colors.yellow),
+                        return InkWell(
+                          onTap:(){
+                            productsController.filterFlashSaleProductInfo(productsController.flashSaleProductsData[index].id);
+                            productsController.filterProductInfoCategoryProducts(productsController.flashSaleProductsData[index].category,productsController.flashSaleProductsData[index].id);
+                            Get.to(const ProductInfoPage(),transition: Transition.topLevel);
+                          },
+                          child: Card(
+                            elevation: 0,
+                            color: Colors.white,
+                            child: Container(
+                              margin: EdgeInsets.only(top:height * 0.01,right: width * 0.02),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: height * 0.1,
+                                    width: width * 0.3,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.1),
+                                      borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*10)),
+                                      image: DecorationImage(
+                                        image: NetworkImage(productsController.flashSaleProductsData[index].primaryImageUrl),
+                                        fit: BoxFit.fill,
                                       ),
                                     ),
-                                    SizedBox(width: width*0.02),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text('${productsController.flashSaleProductsData[index].ratings.toString()} / 5',
-                                        textAlign: TextAlign.start,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: (width/Screen.designWidth) * 20,
+                                  ),
+                                  Container(
+                                    height: height * 0.035,
+                                    width: width * 0.3,
+                                    color: Colors.transparent,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: height * 0.03,
+                                          width: (width * 0.3)/2,
+                                          color: Colors.transparent,
+                                          child: Text('৳ ${productsController.flashSaleProductsData[index].price.toString()}',
+                                            textAlign: TextAlign.start,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: (width/Screen.designWidth) * 25,
+                                            ),
+                                          )
                                         ),
-                                      )
+                                        Container(
+                                          height: height * 0.03,
+                                          width: (width * 0.3)/2,
+                                          color: Colors.transparent,
+                                          child: Text('৳ ${productsController.flashSaleProductsData[index].oldPrice.toString()}',
+                                            textAlign: TextAlign.end,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              color: Colors.red,
+                                              decoration: TextDecoration.lineThrough,
+                                              fontSize: (width/Screen.designWidth) * 25,
+                                            ),
+                                          )
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  Container(
+                                    height: height * 0.03,
+                                    width: width* 0.3,
+                                    color: Colors.transparent,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          height: height * 0.03,
+                                          width: width * 0.05,
+                                          color: Colors.transparent,
+                                          child: const FittedBox(
+                                            child: Icon(Icons.star,color: Colors.yellow),
+                                          ),
+                                        ),
+                                        SizedBox(width: width*0.02),
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text('${productsController.flashSaleProductsData[index].ratings.toString()} / 5',
+                                            textAlign: TextAlign.start,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: (width/Screen.designWidth) * 20,
+                                            ),
+                                          )
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         );
                       },

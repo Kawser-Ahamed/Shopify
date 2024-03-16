@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopify/data/our_products_data.dart';
 import 'package:shopify/data/screen.dart';
 import 'package:shopify/resource/colors/app_color.dart';
+import 'package:shopify/utils/reusable/cart_icon_design.dart';
 import 'package:shopify/utils/reusable/custom_text.dart';
 import 'package:shopify/utils/reusable/names.dart';
 import 'package:shopify/view/pages/products/product_info_page.dart';
@@ -61,14 +61,7 @@ class _SearchState extends State<Search> {
                     padding: EdgeInsets.symmetric(horizontal: width * 0.03),
                     child: CustomText(text: "Search On ${Names.appName}", height: 0.04, width: 0.5, color: Colors.black, bold: false, size: 0.10),
                   ),
-                  Container(
-                    height: height * 0.035,
-                    width: width * 0.09,
-                    color: Colors.transparent,
-                    child: const FittedBox(
-                      child: Icon(CupertinoIcons.cart,color: Colors.black),
-                    ),
-                  ),
+                  const CartIconsDesign(iconsHeight: 0.06, iconWidth: 0.06, color: Colors.black),
         
                 ],
               ),

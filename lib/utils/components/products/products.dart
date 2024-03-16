@@ -27,7 +27,7 @@ class _ProductsState extends State<Products> {
     double width = Screen.screenWidth(context);
     return Obx((){
       return Container(
-        height: ((height * 0.37) * (((productsController.productsData.length)/2) + ((productsController.productsData.length)%2))),
+        height: ((height * 0.45) * (((productsController.productsData.length)/2) + ((productsController.productsData.length)%2))),
         width: width * 1,
         color: Colors.white,
         child: Column(

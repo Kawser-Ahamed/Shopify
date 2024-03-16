@@ -60,16 +60,17 @@ class _CartState extends State<Cart> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    InkWell(
-                      onTap:(){
-                        //Get.back();
-                      },
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        size: (width/Screen.designWidth) * 50,
-                        color: Colors.black,
-                      ),
-                    ),
+                    // InkWell(
+                    //   onTap:(){
+                    //     //Get.back();
+                    //   },
+                    //   child: Icon(
+                    //     Icons.explicit,
+                    //     size: (width/Screen.designWidth) * 50,
+                    //     color: Colors.black,
+                    //   ),
+                    // ),
+                    Image.asset(AppImages.appLogo,fit: BoxFit.cover,height: height * 0.07,width: height * 0.07),
                     Text("Shopify Cart",
                       style: GoogleFonts.aBeeZee(
                         fontSize: (width/Screen.designWidth) * 40,
@@ -80,10 +81,13 @@ class _CartState extends State<Cart> {
                       onTap:(){
                         Get.to(const Search(),transition: Transition.rightToLeftWithFade);
                       },
-                      child: Icon(
-                        Icons.search,
-                        size: (width/Screen.designWidth) * 50,
-                        color: Colors.black,
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: height * 0.01),
+                        child: Icon(
+                          Icons.search,
+                          size: (width/Screen.designWidth) * 70,
+                          color: Colors.black,
+                        ),
                       ),
                     ), 
                   ],
@@ -580,7 +584,7 @@ class _CartState extends State<Cart> {
                           SizedBox(height: height * 0.05),
                           InkWell(
                             onTap:(){
-                              Get.to(const PlaceOrder(),transition: Transition.zoom);
+                              Get.to(const PlaceOrder(),transition: Transition.rightToLeftWithFade);
                             },
                             child: Container(
                               height: height * 0.08,

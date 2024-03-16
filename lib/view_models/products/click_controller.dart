@@ -17,4 +17,5 @@ class ClickController extends GetxController{
   RxInt productQuantity = 1.obs;
   RxInt productRating = 0.obs;
   RxString size = "".obs;
+  RxInt index = 0.obs;
 }

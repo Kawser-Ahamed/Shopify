@@ -7,4 +7,5 @@ class AppColor{
   // static Color secondaryColor = const Color.fromRGBO(248,181,115, 1);
   static Color backgroundColor = const Color.fromRGBO(222, 225, 225, 1);
   static Color iconBackground = const Color.fromRGBO(86, 91, 95, 1);
+  static Color successBackground = const Color.fromRGBO(0,50,65, 1);
 }

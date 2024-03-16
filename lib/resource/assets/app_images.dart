@@ -23,4 +23,12 @@ class AppImages{
   static String emptyCart = 'assets/images/empty_cart.jpg';
   static String cupon = 'assets/images/cupon.png';
   static String orderNow = 'assets/images/order_now.png';
+  static String placeOrder = 'assets/images/place_order.gif';
+  static String congratulation = 'assets/images/congratulation.gif';
+  static String success = 'assets/images/correct.gif';
+  static String cashOnDelivery = 'assets/images/cash_on_delivery.gif';
+  static String orderTracking = 'assets/images/order_tracking.gif';
+  static String freeProduct = 'assets/images/free_product.jpg';
+  static String truckProduct = 'assets/images/truck_product.png';
+  static String cartAnimation = 'assets/images/cart.gif';
 }

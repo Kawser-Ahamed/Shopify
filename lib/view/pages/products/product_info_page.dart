@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shopify/data/screen.dart';
 import 'package:shopify/models/api/comments_model.dart';
 import 'package:shopify/models/cart/cart_model.dart';
+import 'package:shopify/models/user/user_comment_model.dart';
 import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/cart_icon_design.dart';
@@ -15,6 +16,7 @@ import 'package:shopify/view_models/api/comments_view_model.dart';
 import 'package:shopify/view_models/cart/cart_view_model.dart';
 import 'package:shopify/view_models/products/click_controller.dart';
 import 'package:shopify/view_models/products/products_controller.dart';
+import 'package:shopify/view_models/user/user_comment_view_model.dart';
 import 'package:shopify/view_models/user/user_information_view_model.dart';
 
 class ProductInfoPage extends StatefulWidget {
@@ -33,6 +35,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
   TextEditingController reviewAndComments = TextEditingController();
   CartViewModel cartViewModel = Get.find();
   ShopifyUserInformationViewModel shopifyUserInformationViewModel = Get.find();
+  UserCommentViewModel userCommentViewModel = Get.put(UserCommentViewModel());
   
   @override
   void dispose() {
@@ -52,7 +55,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
       },
       child: Scaffold(
         backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: false,
+        //resizeToAvoidBottomInset: false,
         bottomNavigationBar: (productsController.productInfoData.first.quantity>0) ? Container(
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -528,41 +531,55 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                                   itemBuilder: (context, index) {
                                     return (productsController.productInfoData[0].id != snapshot.data![index].postId) ? Container() :
                                     Card(
+                                      elevation: 0.0,
                                       color: Colors.white,
-                                      child: ListTile(
-                                        leading: Container(
-                                          height : height * 0.05,
-                                          width: height * 0.05,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            color: (index%2==0) ? Colors.blue : (index%3==0) ? Colors.green : Colors.pink,
-                                            shape: BoxShape.circle,
-                                          ),  
-                                          child: Text(snapshot.data![index].name.toString()[0].toUpperCase(),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*20)),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey.shade300,
+                                              blurRadius: 2,
+                                              spreadRadius: 2
+                                            )
+                                          ]
+                                        ),
+                                        child: ListTile(
+                                          leading: Container(
+                                            height : height * 0.05,
+                                            width: height * 0.05,
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                              color: (index%2==0) ? Colors.blue : (index%3==0) ? Colors.green : Colors.pink,
+                                              shape: BoxShape.circle,
+                                            ),  
+                                            child: Text(snapshot.data![index].name.toString()[0].toUpperCase(),
+                                              style: TextStyle(
+                                                fontSize: (width/Screen.designWidth)*30,
+                                                color: Colors.white,
+                                              ),
+                                            ),          
+                                          ),
+                                          title: Text(snapshot.data![index].name.toString(),
                                             style: TextStyle(
                                               fontSize: (width/Screen.designWidth)*30,
-                                              color: Colors.white,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                          ),          
-                                        ),
-                                        title: Text(snapshot.data![index].name.toString(),
-                                          style: TextStyle(
-                                            fontSize: (width/Screen.designWidth)*30,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
                                           ),
+                                          subtitle: ExpandableText(snapshot.data![index].body.toString(),
+                                            style: TextStyle(
+                                              fontSize: (width/Screen.designWidth)*25,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.normal,
+                                            ), 
+                                            maxLines: 3,
+                                            expandText: 'Show more',
+                                            collapseText: 'Show Less',
+                                            linkColor: AppColor.primaryColor,
+                                          ),    
                                         ),
-                                        subtitle: ExpandableText(snapshot.data![index].body.toString(),
-                                          style: TextStyle(
-                                            fontSize: (width/Screen.designWidth)*25,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal,
-                                          ), 
-                                          maxLines: 3,
-                                          expandText: 'Show more',
-                                          collapseText: 'Show Less',
-                                          linkColor: AppColor.primaryColor,
-                                        ),    
                                       ),
                                     );
                                   },
@@ -579,6 +596,82 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                                   ),
                                 );
                               }
+                            },
+                          ),
+                          FutureBuilder(
+                            future: userCommentViewModel.getUserComments(productsController.productInfoData.first.id), 
+                            builder: (context, snapshot) {
+                              return ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: userCommentViewModel.userCommentsData.length,
+                                itemBuilder: (context, index) {
+                                  return Card(
+                                    elevation: 0,
+                                    color: Colors.white,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*20)),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.shade300,
+                                            blurRadius: 2,
+                                            spreadRadius: 2
+                                          )
+                                        ]
+                                      ),
+                                      child: ListTile(
+                                        leading: Container(
+                                          height: height * 0.05,
+                                          width: height * 0.05,
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: (index%2==0) ? Colors.red : (index%3==0) ? Colors.deepPurple : Colors.orange,
+                                          ),
+                                          child: Text(userCommentViewModel.userCommentsData[index].userName[0],
+                                            style: TextStyle(
+                                              fontSize: (width/Screen.designWidth)*30,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                        title: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(userCommentViewModel.userCommentsData[index].userName,
+                                              style: TextStyle(
+                                                fontSize: (width/Screen.designWidth)*30,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold
+                                              ),
+                                            ),
+                                            Text('Date: ${userCommentViewModel.userCommentsData[index].dateTime}',
+                                              style: TextStyle(
+                                                fontSize: (width/Screen.designWidth)*20,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.normal
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        subtitle:  ExpandableText(snapshot.data![index].comment.toString(),
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth)*25,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.normal,
+                                          ), 
+                                          maxLines: 3,
+                                          expandText: 'Show more',
+                                          collapseText: 'Show Less',
+                                          linkColor: AppColor.primaryColor,
+                                        ),    
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
                             },
                           ),
                           const Divider(color: Colors.grey),
@@ -661,19 +754,40 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                               SizedBox(width: width* 0.02),
                               Expanded(
                                 flex: 1,
-                                child: Container(
-                                  height: height * 0.05,
-                                  decoration: BoxDecoration(
-                                    color: Colors.pink,
-                                    borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*50)),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: width * 0.03),
-                                    child: FittedBox(
-                                      child: Text("Comment",
-                                        style: TextStyle(
-                                          fontSize: (width/Screen.designWidth) * 30,
-                                          color: Colors.white,
+                                child: InkWell(
+                                  onTap:(){
+                                    if(shopifyUserInformationViewModel.hasAccount.value){
+                                      DateTime now = DateTime.now();
+                                      DateTime dateOnly = DateTime(now.year, now.month, now.day);
+                                      String formattedDate = '${dateOnly.day}-${dateOnly.month}-${dateOnly.year}';
+                                      UserCommentModel userCommentModel = UserCommentModel(
+                                        commentId: now.microsecondsSinceEpoch.toString(),
+                                        productId: productsController.productInfoData.first.id, 
+                                        userName: shopifyUserInformationViewModel.userInformation.first.name, 
+                                        comment: reviewAndComments.text, 
+                                        dateTime: formattedDate.toString(),
+                                      );
+                                      userCommentViewModel.userComment(userCommentModel);
+                                      reviewAndComments.text = "";
+                                    }
+                                    else{
+                                       Get.to(const ShopifyUserLoginPage(),transition: Transition.rightToLeftWithFade);
+                                    }
+                                  },
+                                  child: Container(
+                                    height: height * 0.05,
+                                    decoration: BoxDecoration(
+                                      color: Colors.pink,
+                                      borderRadius: BorderRadius.all(Radius.circular((width/Screen.designWidth)*50)),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+                                      child: FittedBox(
+                                        child: Text("Comment",
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -708,8 +822,7 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                                 onTap: (){
                                   productsController.filterProductInfo(productsController.productInfoCatgory[index].id);
                                   productsController.filterProductInfoCategoryProducts(productsController.productsData[index].category,productsController.productInfoCatgory[index].id);
-                                  setState(() {
-                                  });
+                                  userCommentViewModel.getUserComments(productsController.productInfoCatgory[index].id).whenComplete(() => setState(() {}));
                                 },
                                 child: Container(
                                   margin: EdgeInsets.symmetric(horizontal: width * 0.02),

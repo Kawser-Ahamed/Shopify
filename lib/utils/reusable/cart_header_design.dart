@@ -156,7 +156,7 @@ class _CartHeaderDesignState extends State<CartHeaderDesign> {
                           ),
                         ),
                       ),
-                      Text("Delivery",
+                      Text("Payment",
                         style: GoogleFonts.aBeeZee(
                           fontSize: (width/Screen.designWidth) * 30,
                           color: Colors.black,

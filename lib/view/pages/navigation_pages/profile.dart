@@ -13,7 +13,9 @@ import 'package:shopify/utils/reusable/app_bar.dart';
 import 'package:shopify/utils/reusable/names.dart';
 import 'package:shopify/view/authentication/shopify_user_login.dart';
 import 'package:shopify/view/pages/products/search.dart';
-import 'package:shopify/view/pages/user_menu_pages/user_location.dart';
+import 'package:shopify/view/pages/user/user_location.dart';
+import 'package:shopify/view/pages/user/user_notification.dart';
+import 'package:shopify/view/pages/user/user_order.dart';
 import 'package:shopify/view_models/user/user_information_view_model.dart';
 
 class Profile extends StatefulWidget {
@@ -199,8 +201,13 @@ class _ProfileState extends State<Profile> {
                           size: (width/Screen.designWidth) * 50,
                         ),
                       ),
-                      Icon(Icons.notifications_none, 
-                        size: (width/Screen.designWidth) * 50,
+                      InkWell(
+                        onTap:(){
+                          Get.to(const UserNotification(),transition: Transition.rightToLeftWithFade);
+                        },
+                        child: Icon(Icons.notifications_none, 
+                          size: (width/Screen.designWidth) * 50,
+                        ),
                       ),
                       InkWell(
                         onTap:() async{
@@ -348,7 +355,7 @@ class _ProfileState extends State<Profile> {
             )),
             Positioned(
               top: height * 0.58,
-              bottom: height * 0.01,
+              bottom: height * 0.08,
               left: 0,
               right: 0,
               child: Container(
@@ -388,7 +395,10 @@ class _ProfileState extends State<Profile> {
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap:(){
-                              if(index==1){
+                              if(index==0){
+                                Get.to(const UserOrder(),transition: Transition.fade);
+                              }
+                              else if(index==1){
                                 debugPrint('location: ${shopifyUserInformationViewModel.userInformation[0].location}');
                                 userLocation.getUserLocation(context);
                               }

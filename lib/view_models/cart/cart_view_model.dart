@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopify/models/cart/cart_model.dart';
 import 'package:shopify/view_models/cart/cupon_view_model.dart';
@@ -9,6 +10,9 @@ class CartViewModel extends GetxController{
   RxDouble totalPrice = 0.0.obs;
   RxDouble deliveryChargePrice = 0.0.obs;
   RxDouble grandTotalPrice = 0.0.obs;
+  RxString deliverDate = "".obs;
+  RxString deliveryLocation = "".obs;
+  TextEditingController location = TextEditingController();
 
   void addProductsOnCart(CartModel cartModel){
     cartProducts[cartModel.productId] = cartModel;

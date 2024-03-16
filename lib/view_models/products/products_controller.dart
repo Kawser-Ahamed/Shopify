@@ -107,4 +107,9 @@ class ProductsController extends GetxController{
     productInfoData.clear();
     productInfoData = productsData.where((product) => product.id == productId).toList();
   }
+
+  void filterFlashSaleProductInfo(int productId){
+     productInfoData.clear();
+     productInfoData = flashSaleProductsData.where((product) => product.id == productId).toList();
+  }
 }

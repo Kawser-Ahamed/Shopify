@@ -14,7 +14,6 @@ class CuponViewModel extends GetxController{
     try{
       final snapshot = await FirebaseDatabase.instance.ref('Cupon').once();
       final data = snapshot.snapshot.value as Map<dynamic,dynamic>;
-      debugPrint(data.toString());
       cuponData.value = data.entries.map((entry){
         return CuponModel(
           id: entry.value['id'], 
