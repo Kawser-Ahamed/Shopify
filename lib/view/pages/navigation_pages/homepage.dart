@@ -42,7 +42,6 @@ class _HomePageState extends State<HomePage> {
                     const FlashSale(),
                     SizedBox(height: height * 0.01),    
                     const Products(),
-                    //const HomePageCarouselSlider(),
                   ],
                 ),
               )

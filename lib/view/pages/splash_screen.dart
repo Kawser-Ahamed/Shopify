@@ -1,12 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shopify/data/screen.dart';
-import 'package:shopify/resource/assets/app_images.dart';
+import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/app_logo_animation.dart';
 import 'package:shopify/utils/reusable/loading.dart';
 import 'package:shopify/view/pages/navigation_pages/mainpage.dart';
+import 'package:shopify/view_models/carasoul/main_carasoul_controller.dart';
+import 'package:shopify/view_models/products/categories_controller.dart';
 import 'package:shopify/view_models/user/user_information_view_model.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,6 +20,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   ShopifyUserInformationViewModel shopifyUserInformationViewModel = Get.put(ShopifyUserInformationViewModel());
+  CategoriesController categoriesController = Get.put(CategoriesController());
+  MainCarasoulController mainCarasoulController = Get.put(MainCarasoulController());
 
   void checkUserLoginInformation(){
     Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -31,7 +34,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    shopifyUserInformationViewModel.getUserInformation();
+    shopifyUserInformationViewModel.getUserInformation().whenComplete((){
+      categoriesController.getShopifyCategories().whenComplete((){
+        mainCarasoulController.getMainCarasoulData();
+      });
+    });
     checkUserLoginInformation();
     super.initState();
   }
@@ -44,11 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
         height: height * 1,
         width: width * 1,
         decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage(AppImages.splashScreenImage),
-            fit: BoxFit.fill,
-          ),
+          color: AppColor.primaryColor,
         ),
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
