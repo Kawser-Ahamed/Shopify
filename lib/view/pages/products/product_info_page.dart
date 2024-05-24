@@ -10,7 +10,7 @@ import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/cart_icon_design.dart';
 import 'package:shopify/utils/reusable/custom_text.dart';
-import 'package:shopify/view/authentication/shopify_user_login.dart';
+import 'package:shopify/view/pages/authentication/shopify_user_login.dart';
 import 'package:shopify/view/pages/products/search.dart';
 import 'package:shopify/view_models/api/comments_view_model.dart';
 import 'package:shopify/view_models/cart/cart_view_model.dart';

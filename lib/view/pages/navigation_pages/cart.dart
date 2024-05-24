@@ -437,143 +437,89 @@ class _CartState extends State<Cart> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      height: height * 0.05,
-                                      color: Colors.transparent,
-                                      child: FittedBox(
-                                        child: Text("Order Summary",
-                                          style: TextStyle(
-                                            fontSize: (width/Screen.designWidth) * 40,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
+                                    Text("Order Summary",
+                                      style: TextStyle(
+                                        fontSize: (width/Screen.designWidth) * 35,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Divider(color: Colors.grey,thickness: height * 0.002),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Text("Subtotal:",
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
+                                        Text("Subtotal:",
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Obx(() => Text('৳ ${cartViewModel.totalPrice.toString()}',
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                            )),
+                                        Obx(() => Text('৳ ${cartViewModel.totalPrice.toString()}',
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.normal,
                                           ),
-                                        ),
+                                        )),
                                       ],
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Text("Delivery:",
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
+                                        Text("Delivery:",
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Obx(() => Text('৳ ${cartViewModel.deliveryChargePrice.toString()}',
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                            ),),
+                                        Obx(() => Text('৳ ${cartViewModel.deliveryChargePrice.toString()}',
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.normal,
                                           ),
-                                        ),
+                                        ),),
                                       ],
                                     ),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Text("Discount:",
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
+                                       Text("Discount:",
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Obx(() => Text('৳ ${cuponViewModel.totalDiscountPrice.toString()}',
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.normal,
-                                              ),
-                                            ),)
+                                         Obx(() => Text('৳ ${cuponViewModel.totalDiscountPrice.toString()}',
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 30,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.normal,
                                           ),
-                                        ),
+                                        ),)
                                       ],
                                     ),
                                     Divider(color: Colors.grey,thickness: height * 0.002),
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Text("Grand Total:",
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
+                                        Text("Grand Total:",
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 35,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                        Container(
-                                          height: height * 0.04,
-                                          color: Colors.transparent,
-                                          child: FittedBox(
-                                            child: Obx(() => Text('৳ ${cartViewModel.grandTotalPrice.toString()}',
-                                              style: TextStyle(
-                                                fontSize: (width/Screen.designWidth) * 40,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),)
+                                        Obx(() => Text('৳ ${cartViewModel.grandTotalPrice.toString()}',
+                                          style: TextStyle(
+                                            fontSize: (width/Screen.designWidth) * 35,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
                                           ),
-                                        ),
+                                        ),)
                                       ],
                                     ),
                                   ],

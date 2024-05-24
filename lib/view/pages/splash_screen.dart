@@ -36,10 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     shopifyUserInformationViewModel.getUserInformation().whenComplete((){
       categoriesController.getShopifyCategories().whenComplete((){
-        mainCarasoulController.getMainCarasoulData();
+        mainCarasoulController.getMainCarasoulData().whenComplete((){
+          checkUserLoginInformation();
+        });
       });
     });
-    checkUserLoginInformation();
     super.initState();
   }
   @override

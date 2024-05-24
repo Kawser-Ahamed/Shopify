@@ -7,7 +7,7 @@ import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/app_logo_animation.dart';
 import 'package:shopify/utils/reusable/custom_textfield.dart';
-import 'package:shopify/view/authentication/shopify_user_signup.dart';
+import 'package:shopify/view/pages/authentication/shopify_user_signup.dart';
 import 'package:shopify/view/pages/navigation_pages/mainpage.dart';
 import 'package:shopify/view_models/authentication/shopify_user_login_view_model.dart';
 

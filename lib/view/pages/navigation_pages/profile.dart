@@ -11,7 +11,7 @@ import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/app_bar.dart';
 import 'package:shopify/utils/reusable/names.dart';
-import 'package:shopify/view/authentication/shopify_user_login.dart';
+import 'package:shopify/view/pages/authentication/shopify_user_login.dart';
 import 'package:shopify/view/pages/products/search.dart';
 import 'package:shopify/view/pages/user/user_location.dart';
 import 'package:shopify/view/pages/user/user_notification.dart';
