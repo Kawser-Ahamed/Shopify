@@ -68,8 +68,8 @@
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-39-57-12_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=10e798c1-0abf-4dc8-abd3-fcd4937ba1d5" />
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-07-50_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=d7e1794b-8fa0-4d54-92de-3254b7017278" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-39-57-12_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=10e798c1-0abf-4dc8-abd3-fcd4937ba1d5" alt="homepage"/>
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-07-50_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=d7e1794b-8fa0-4d54-92de-3254b7017278" alt="homepage 2"/>
   <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-17-39_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=e66eecd6-f246-4b8f-be7d-db35be70f5e8" />
   <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-38-96_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=e35cf95d-6853-4810-b420-8f1ccc91eb17" />
   <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-41-13-38_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=6baefd1f-7b8a-48b6-83ce-ff142d3005c0" />
