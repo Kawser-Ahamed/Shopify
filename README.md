@@ -4,7 +4,7 @@
   
   <p>
     Shopify is an e-commerce app. This app has user friendly ui and smooth functionality. User can find 
-    products and nuy them easily.
+    products and buy them easily.
   </p>
   
   
