@@ -68,12 +68,21 @@
 ### :camera: Screenshots
 
 <div align="center"> 
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/recipe%20vista%2FCapture.PNG?alt=media&token=ad0af640-6bca-4f79-acf0-4ef22ff54da1" alt="Splash Screen" />
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/recipe%20vista%2FCapture2.PNG?alt=media&token=a4ee4667-0585-4df1-bf6d-441ab15c387f" alt="Homepage" />
-   <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/recipe%20vista%2FCapture3.PNG?alt=media&token=95303f38-ea3b-433d-bedb-2bf6bf15b94a" alt="Category" />
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/recipe%20vista%2FCapture4.PNG?alt=media&token=514e7308-3f76-4b16-acea-7d74d01a8878" alt="Category Foods" />
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/recipe%20vista%2FCapture5.PNG?alt=media&token=05ce3e5b-42a8-496f-95f6-b33762e7f3c4" alt="Food Information" />
-  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/recipe%20vista%2FCapture6.PNG?alt=media&token=584c005f-6a0b-433b-aca3-53c737a90c39" alt="Favourite Foods" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-39-57-12_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=10e798c1-0abf-4dc8-abd3-fcd4937ba1d5" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-07-50_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=d7e1794b-8fa0-4d54-92de-3254b7017278" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-17-39_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=e66eecd6-f246-4b8f-be7d-db35be70f5e8" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-40-38-96_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=e35cf95d-6853-4810-b420-8f1ccc91eb17" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-41-13-38_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=6baefd1f-7b8a-48b6-83ce-ff142d3005c0" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-41-31-40_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=07b6515a-978a-4be1-bec9-7278df831eb8" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-41-53-90_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=9b178e08-a72f-4df0-8e02-0c6ee74bbbe9" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-42-14-28_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=c700b242-1fb3-4270-a1fb-f027f09289ec" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-42-50-70_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=3301f48d-0fcc-4035-9b91-d2ada552a7bb" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-43-09-33_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=781d0864-f2dc-444b-8c6a-f760c707eb61" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-43-16-18_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=ae0ad9d0-2a09-4347-bd3d-af60afc80da2" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-43-22-19_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=dd98a883-6e7c-4631-aa9a-8f0af52e552b" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-43-30-05_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=a5f00c80-6fc6-4c40-b65a-d02e593144e3" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-43-35-24_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=cf8855b1-1537-4ddd-9f7c-699d9980491f" />
+  <img src="https://firebasestorage.googleapis.com/v0/b/test-2aece.appspot.com/o/shopify%2FScreenshot_2024-05-29-00-43-42-47_21030d31dc05c1ccf317e5cdef84a3a6.jpg?alt=media&token=00f4a780-6167-4cbd-b462-4854b0628aac" />
 </div>
 
 
@@ -232,7 +241,7 @@ This project is licensed under the terms of Kawser Ahamed.
 
 Your Name - [@facebook_handle](https://www.facebook.com/kawser.ahamed.farabi/) - kawserahamed864@gmail.com
 
-Project Link: [Recipe Vista](https://github.com/Kawser-Ahamed/Recipe-Vista)
+Project Link: [Shopify](https://github.com/Kawser-Ahamed/Shopify)
 
 
 <!-- Acknowledgments -->
