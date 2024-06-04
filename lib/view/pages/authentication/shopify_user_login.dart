@@ -7,6 +7,7 @@ import 'package:shopify/resource/assets/app_images.dart';
 import 'package:shopify/resource/colors/app_color.dart';
 import 'package:shopify/utils/reusable/app_logo_animation.dart';
 import 'package:shopify/utils/reusable/custom_textfield.dart';
+import 'package:shopify/utils/reusable/loading.dart';
 import 'package:shopify/view/pages/authentication/shopify_user_signup.dart';
 import 'package:shopify/view/pages/navigation_pages/mainpage.dart';
 import 'package:shopify/view_models/authentication/shopify_user_login_view_model.dart';
@@ -71,7 +72,44 @@ class _ShopifyUserLoginPageState extends State<ShopifyUserLoginPage> with Ticker
               CustomTextField(hintText: "Password",controller: password,leadingIcon: Icons.password,trailingIcon: true),
               TextButton(
                 onPressed: (){
-          
+                   if(email.text.isEmpty){
+                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      backgroundColor: AppColor.primaryColor,
+                      content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Shopify",
+                            style: GoogleFonts.aBeeZee(
+                              fontSize: (width/Screen.designWidth) * 40,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text("Please fill email address",
+                            style: TextStyle(
+                              fontSize: (width/Screen.designWidth) * 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      )
+                    ));
+                  }
+                  else{
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context, 
+                      builder: (context) {
+                        return Center(
+                          child: Loading(color: AppColor.primaryColor, size: 0.05),
+                        );
+                      },
+                    );
+                    shopifyUserLoginViewModel.resetPassword(email.text).whenComplete((){
+                      Navigator.pop(context);
+                    });
+                  }
                 },
                 child: Text("Forgot your password?",
                   style: GoogleFonts.aBeeZee(

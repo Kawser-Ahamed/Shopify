@@ -13,7 +13,7 @@ class ShopifyUserLoginViewModel extends GetxController{
     bool isLoggedIn = false;
     ShopifyUserInformationViewModel shopifyUserInformationViewModel = Get.find();
    
-    Future<void> googleLogin () async{
+  Future<void> googleLogin () async{
     try{
       final auth = FirebaseAuth.instance;
       final googleSignIn = GoogleSignIn();
@@ -106,5 +106,24 @@ class ShopifyUserLoginViewModel extends GetxController{
     }
     // ignore: use_build_context_synchronously
     Navigator.pop(context);
+  }
+
+  Future<void> resetPassword(String email) async{
+    try{
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email).whenComplete((){
+        Get.snackbar('Shopify', 'We have send you a reset email.Please check it & change password.',
+          backgroundColor: AppColor.primaryColor,
+          colorText: Colors.white,
+          duration: const Duration(seconds: 2),
+        );
+      });
+    }
+    catch(error){
+      Get.snackbar('Shopify', 'Please try again.',
+        backgroundColor: AppColor.primaryColor,
+        colorText: Colors.white,
+        duration: const Duration(seconds: 2),
+      );
+    }
   }
 }

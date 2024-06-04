@@ -141,11 +141,13 @@ class _ProfileState extends State<Profile> {
                       shape: BoxShape.circle,
                       color: Colors.orange,
                     ),
-                    child: Text(shopifyUserInformationViewModel.userInformation[0].name[0],
-                      style: TextStyle(
-                        fontSize: (width/Screen.designWidth) * 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                    child: FittedBox(
+                      child: Text(shopifyUserInformationViewModel.userInformation[0].name[0],
+                        style: TextStyle(
+                          fontSize: (width/Screen.designWidth) * 40,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   )
@@ -154,18 +156,26 @@ class _ProfileState extends State<Profile> {
                     radius: height * 0.05,
                   ),
                   SizedBox(height: height * 0.01),
-                  Text(shopifyUserInformationViewModel.userInformation[0].name,
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: (width/Screen.designWidth) * 30,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+                    child: Text(shopifyUserInformationViewModel.userInformation[0].name,
+                      style: GoogleFonts.aBeeZee(
+                        fontSize: (width/Screen.designWidth) * 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  Text(shopifyUserInformationViewModel.userInformation[0].email,
-                    style: GoogleFonts.aBeeZee(
-                      fontSize: (width/Screen.designWidth) * 30,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+                    child: Text(shopifyUserInformationViewModel.userInformation[0].email,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.aBeeZee(
+                        fontSize: (width/Screen.designWidth) * 30,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   )
                 ],
@@ -400,7 +410,11 @@ class _ProfileState extends State<Profile> {
                               }
                               else if(index==1){
                                 debugPrint('location: ${shopifyUserInformationViewModel.userInformation[0].location}');
-                                userLocation.getUserLocation(context);
+                                userLocation.getUserLocation(context).whenComplete((){
+                                  shopifyUserInformationViewModel.getUserInformation().whenComplete((){
+                                    setState((){});
+                                  });
+                                });
                               }
                             },
                             child: Container(

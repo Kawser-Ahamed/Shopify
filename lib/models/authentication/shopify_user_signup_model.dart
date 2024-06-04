@@ -10,8 +10,8 @@ class ShopifyUserSignupModel {
     return {
       'email' : email,
       'name' : name,
-      'mobile Number' : null,
-      'profileImage' : null,
+      'mobileNumber' : "",
+      'profileImage' : "",
       'points' : 0,
     };
   }

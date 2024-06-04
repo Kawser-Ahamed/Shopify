@@ -140,20 +140,32 @@ class _MenuState extends State<Menu> {
                                           return Padding(
                                             padding: EdgeInsets.symmetric(horizontal: width * 0.02,vertical: height * 0.005),
                                             child: Card(
-                                              shadowColor: Colors.grey,
                                               color: Colors.white,
-                                              elevation: 5,
-                                              child: ListTile(
-                                                title: Text(snapshot.data![index].user!.username.toString(),
-                                                  style: TextStyle(
-                                                    fontSize: (width/Screen.designWidth) * 30,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                              elevation: 0,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius: BorderRadius.circular((width/Screen.designWidth) * 10),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors.grey.shade300,
+                                                      spreadRadius: 2,
+                                                      blurRadius: 2,
+                                                    ),
+                                                  ]
                                                 ),
-                                                subtitle: Text(snapshot.data![index].body.toString(),
-                                                  style: TextStyle(
-                                                    fontSize: (width/Screen.designWidth) * 30,
-                                                    fontWeight: FontWeight.normal,
+                                                child: ListTile(
+                                                  title: Text(snapshot.data![index].user!.username.toString(),
+                                                    style: TextStyle(
+                                                      fontSize: (width/Screen.designWidth) * 30,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  subtitle: Text(snapshot.data![index].body.toString(),
+                                                    style: TextStyle(
+                                                      fontSize: (width/Screen.designWidth) * 30,
+                                                      fontWeight: FontWeight.normal,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -207,23 +219,35 @@ class _MenuState extends State<Menu> {
                                           return Padding(
                                             padding: EdgeInsets.symmetric(horizontal: width * 0.02,vertical: height * 0.005),
                                             child: Card(
-                                              shadowColor: Colors.grey,
                                               color: Colors.white,
-                                              elevation: 5,
-                                              child: ListTile(
-                                                leading: CircleAvatar(
-                                                  backgroundImage: NetworkImage(snapshot.data![index].image.toString()),
+                                              elevation: 0,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius: BorderRadius.circular((width/Screen.designWidth) * 10),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors.grey.shade300,
+                                                      spreadRadius: 2,
+                                                      blurRadius: 2,
+                                                    ),
+                                                  ]
                                                 ),
-                                                title: Text(snapshot.data![index].firstName.toString(),
-                                                  style: TextStyle(
-                                                    fontSize: (width/Screen.designWidth) * 30,
-                                                    fontWeight: FontWeight.bold,
+                                                child: ListTile(
+                                                  leading: CircleAvatar(
+                                                    backgroundImage: NetworkImage(snapshot.data![index].image.toString()),
                                                   ),
-                                                ),
-                                                subtitle: Text(snapshot.data![index].email.toString(),
-                                                  style: TextStyle(
-                                                    fontSize: (width/Screen.designWidth) * 30,
-                                                    fontWeight: FontWeight.normal,
+                                                  title: Text(snapshot.data![index].firstName.toString(),
+                                                    style: TextStyle(
+                                                      fontSize: (width/Screen.designWidth) * 30,
+                                                      fontWeight: FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  subtitle: Text(snapshot.data![index].email.toString(),
+                                                    style: TextStyle(
+                                                      fontSize: (width/Screen.designWidth) * 30,
+                                                      fontWeight: FontWeight.normal,
+                                                    ),
                                                   ),
                                                 ),
                                               ),

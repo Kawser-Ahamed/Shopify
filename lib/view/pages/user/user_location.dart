@@ -61,6 +61,7 @@ class UserLocation{
                TextButton(
                   onPressed: (){
                     userLocationViewModel.sendShopifyUserLocation();
+                    Navigator.pop(context);
                   }, 
                   child: Text("Add My Current Location",
                     style: TextStyle(
